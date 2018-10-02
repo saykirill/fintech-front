@@ -97,8 +97,71 @@ function fibonacciWithCache(x) {
  * @param  {number} cols количество столбцов
  * @return {string}
  */
-function printNumbers(max, cols) {}
+/*
+function printNumbers(max, cols) {
+  let number = 0;
+  let string = "";
+  let minRows = Math.ceil((max + 1) / cols);
+  for (let j = 0; j < minRows; j++) {
+    for (let i = 0; i < cols; i++) {
+      if (number <= max){
+     
+      string[j] += "${number} ";
+    }
+    string += "\n";
 
+    }
+  }
+}*/
+
+function printNumbers(max, cols) {
+  let number = 0;
+  
+  let sumString = ``;
+  let minRows = Math.ceil((max + 1) / cols);
+  let string = [];
+    for (let j = 0; j < minRows; j++){ //инициализируем строки
+    string[j] = ``;
+  }
+  for (let i = 0; i < cols; i++) { //идем по столбцам
+    for (let j = 0; j < minRows; j++) { //идем по строкам
+      if (number <= max){ //если число больше максимального, то заканчиваем
+        if (i !== cols-1) { //в последней колонке не ставим пробел (если в последней строчке не хватает чисел, чтобы заполнить строку используем фичу1, см.ниже)
+          if (number < 10){
+            string[j] += ` ${number} `;
+          }
+          else {
+            string[j] += `${number} `;
+          }
+        }
+        else {
+          if (number < 10){
+            string[j] += ` ${number}`;
+          }
+          else {
+            string[j] += `${number}`;
+          }
+        }
+        number++;
+      }
+      else {
+        
+      }
+    }
+  }
+  for (let j = 0; j < minRows; j++) {
+    if (j !== minRows - 1) {
+      sumString += string[j] + `\n`;    //соединяем все строки в одну большую с переходом на след. строку
+    }
+    else {
+      sumString += string[j];    //в последней строке не делаем перенос
+    }
+  }
+  if (sumString.substr(sumString.length-1,sumString.length) === ' ') { //фича1
+    sumString =  sumString.substr(0,sumString.length-1) //убираем лишний пробел, если он есть
+  }
+  return sumString;
+}
 /* ============================================= */
 
 /**
