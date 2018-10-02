@@ -145,7 +145,42 @@ function printNumbers(max, cols) {
  * @param  {string} value
  * @return {string}
  */
-function rle(input) {}
+function rle(input) {
+  let result = ``;
+  let count = 1;
+  prevChar = ``;
+  curChar = ``;
+  for (let i = 0; i < input.length; i++){
+    curChar = input[i];
+    if (curChar === prevChar) {
+      count++;
+    }
+    else {
+      if (count !== 1) {
+        result += `${prevChar}${count}`;
+        count = 1;
+        prevChar=curChar;
+      }
+      else {
+        result += `${prevChar}`;
+        count = 1;
+        prevChar=curChar;
+      }
+      
+    }
+  }
+  if (count !== 1) {
+    result += `${prevChar}${count}`;
+    count = 1;
+    prevChar=curChar;
+  }
+  else {
+    result += `${prevChar}`;
+    count = 1;
+    prevChar=curChar;
+  }
+  return result;
+}
 
 module.exports = {
   getMinMax,
