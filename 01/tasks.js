@@ -42,6 +42,16 @@ function getMinMax(string) {
  * @return {number} число под номером х
  */
 function fibonacciSimple(x) {
+  if ( x === 1 || x === 2 ) {
+    x = 1;
+    return x;
+  }
+  if ( x < 1) {
+    return "Некорректный номер числа";
+  }
+  else {
+    x = fibonacciSimple(x - 1) + fibonacciSimple(x - 2); 
+  }
   return x;
 }
 
