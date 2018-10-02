@@ -9,7 +9,33 @@
  * '1 и 6.45, -2, но 8, а затем 15, то есть 2.7 и -1028' => { min: -1028, max: 15 }
  */
 function getMinMax(string) {
+<<<<<<< HEAD
   return string;
+=======
+  let min, max;
+  let isFirstNumber = true;
+  while (string.length > 0) {
+    let x = parseFloat(string);
+    if (!isNaN(x)) {
+      if (isFirstNumber) {
+        min = x;
+        max = x;
+        isFirstNumber = false;
+      }
+      if (x < min) {
+        min = x;
+      }
+      if (x > max) {
+        max = x;
+      }
+      string = string.substr(String(x).length, string.length);
+    }
+    else {
+      string = string.substr(1, string.length);
+    }
+  }
+  return { min: min, max: max }
+>>>>>>> Добавил тело первой функции
 }
 
 /* ============================================= */
