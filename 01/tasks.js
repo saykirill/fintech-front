@@ -47,8 +47,7 @@ function getMinMax(string) {
  */
 function fibonacciSimple(x) {
   if ( x === 1 || x === 2 ) {
-    x = 1;
-    return x;
+    return 1;
   }
   if ( x < 1) {
     return "Некорректный номер числа";
@@ -67,8 +66,18 @@ function fibonacciSimple(x) {
  * @param {number} x номер числа
  * @return {number} число под номером х
  */
+const cache = [1, 1]
 function fibonacciWithCache(x) {
-  return x;
+  if ( x < 1) {
+    return "Некорректный номер числа";
+  }
+  if ( x == 1 || x == 2) {
+    return cache[x-1];
+  }
+  else {
+    cache[x-1] = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2); 
+  }
+  return cache[x-1];
 }
 
 /* ============================================= */
