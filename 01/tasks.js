@@ -93,26 +93,9 @@ function fibonacciWithCache(x) {
  * @param  {number} cols количество столбцов
  * @return {string}
  */
-/*
-function printNumbers(max, cols) {
-  let number = 0;
-  let string = "";
-  let minRows = Math.ceil((max + 1) / cols);
-  for (let j = 0; j < minRows; j++) {
-    for (let i = 0; i < cols; i++) {
-      if (number <= max){
-     
-      string[j] += "${number} ";
-    }
-    string += "\n";
-
-    }
-  }
-}*/
 
 function printNumbers(max, cols) {
-  let number = 0;
-  
+  let number = 0;  
   let sumString = ``;
   let minRows = Math.ceil((max + 1) / cols);
   let string = [];
@@ -139,9 +122,6 @@ function printNumbers(max, cols) {
           }
         }
         number++;
-      }
-      else {
-        
       }
     }
   }
