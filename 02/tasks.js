@@ -100,7 +100,15 @@ function getUnique(arr) {
  * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
  */
 function getIntersection(first, second) {
-  return [];
+  const arr = [];
+
+  for (let i = 0; i < first.length; i++) {
+    if (second.indexOf(first[i]) !== -1) { // ищем iый элемент массива first в массиве second
+      arr.push(first[i]);
+    }
+  }
+  arr.sort((a, b) => (a - b)); // сортируем
+  return arr;
 }
 
 /* ============================================= */
