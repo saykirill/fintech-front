@@ -65,6 +65,16 @@ function sum(x) {
  * @return {boolean}
  */
 function anagram(first, second) {
+  const arr1 = first.split('');
+  const arr2 = second.split('');
+  
+  arr1.sort();
+  arr2.sort();
+  first = arr1.join();
+  second = arr2.join();
+  if (first === second) {
+    return true;
+  }
   return false;
 }
 
