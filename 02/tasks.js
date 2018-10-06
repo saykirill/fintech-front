@@ -24,7 +24,14 @@ function timer(logger = console.log) {
  * @return {Function} функция с нужным контекстом
  */
 function customBind(func, context, ...args) {
+  const bindArgs = [].slice.call(args);
 
+  return function() {
+    const curArgs = [].slice.call(arguments);
+    const unshiftArgs = bindArgs.concat(curArgs);
+
+    return func.apply(context, unshiftArgs);
+  };
 }
 
 /*= ============================================ */
