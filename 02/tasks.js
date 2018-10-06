@@ -65,14 +65,10 @@ function sum(x) {
  * @return {boolean}
  */
 function anagram(first, second) {
-  const arr1 = first.split('');
-  const arr2 = second.split('');
-  
-  arr1.sort();
-  arr2.sort();
-  first = arr1.join();
-  second = arr2.join();
-  if (first === second) {
+  const arr1 = first.toLowerCase().split('').sort(); // переводим в нижний регистр, сплитим в массив и
+  const arr2 = second.toLowerCase().split('').sort();// сортируем
+
+  if (arr1.join() === arr2.join()) { // превращаем в строку, чтобы удобно было сравнивать
     return true;
   }
   return false;
@@ -87,7 +83,14 @@ function anagram(first, second) {
  * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
  */
 function getUnique(arr) {
-  return [];
+  arr.sort();
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === arr[i + 1]) {
+      arr.splice(i, 1);
+      i--;
+    }
+  }
+  return arr;
 }
 
 /**
