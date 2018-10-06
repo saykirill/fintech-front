@@ -9,8 +9,10 @@
  * '1 и 6.45, -2, но 8, а затем 15, то есть 2.7 и -1028' => { min: -1028, max: 15 }
  */
 function getMinMax(string) {
-  let min, max;
+  let min, 
+    max;
   let isFirstNumber = true;
+
   while (string.length > 0) {
     let x = parseFloat(string);
     if (!isNaN(x)) {
@@ -42,15 +44,14 @@ function getMinMax(string) {
  * @return {number} число под номером х
  */
 function fibonacciSimple(x) {
-  if ( x === 1 || x === 2 ) {
+  if (x === 1 || x === 2) {
     return 1;
   }
-  if ( x < 1) {
-    return "Некорректный номер числа";
+  if (x < 1) {
+    return 'Некорректный номер числа';
   }
-  else {
-    x = fibonacciSimple(x - 1) + fibonacciSimple(x - 2); 
-  }
+  x = fibonacciSimple(x - 1) + fibonacciSimple(x - 2); 
+
   return x;
 }
 
@@ -62,18 +63,17 @@ function fibonacciSimple(x) {
  * @param {number} x номер числа
  * @return {number} число под номером х
  */
-const cache = [1, 1]
+const cache = [1, 1];
+
 function fibonacciWithCache(x) {
-  if ( x < 1) {
-    return "Некорректный номер числа";
+  if (x < 1) {
+    return 'Некорректный номер числа';
   }
-  if ( x == 1 || x == 2) {
-    return cache[x-1];
+  if (x === 1 || x === 2) {
+    return cache[x - 1];
   }
-  else {
-    cache[x-1] = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2); 
-  }
-  return cache[x-1];
+  cache[x - 1] = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2);
+  return cache[x - 1];
 }
 
 /* ============================================= */
@@ -99,7 +99,7 @@ function printNumbers(max, cols) {
   let sumString = ``;
   let minRows = Math.ceil((max + 1) / cols);
   let string = [];
-    for (let j = 0; j < minRows; j++){ //инициализируем строки
+  for (let j = 0; j < minRows; j++){ //инициализируем строки
     string[j] = ``;
   }
   for (let i = 0; i < cols; i++) { //идем по столбцам
