@@ -83,10 +83,10 @@ function anagram(first, second) {
  * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
  */
 function getUnique(arr) {
-  arr.sort();
+  arr.sort((a, b) => (a - b)); // чтобы отсортировать по возрастанию чисел, а не строк
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === arr[i + 1]) {
-      arr.splice(i, 1);
+      arr.splice(i, 1); // удаляем повторяющийся элемент
       i--;
     }
   }
