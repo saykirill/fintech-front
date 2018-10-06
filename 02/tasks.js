@@ -44,7 +44,16 @@ function customBind(func, context, ...args) {
  * sum :: void -> Number
  */
 function sum(x) {
-  return 0;
+  if (arguments.length === 0) {
+    return 0;
+  }
+
+  return param => {
+    if (param !== undefined) {
+      return sum(param + x);
+    }
+    return x;
+  };
 }
 
 /*= ============================================ */
