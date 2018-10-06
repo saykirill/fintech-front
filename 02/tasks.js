@@ -13,7 +13,23 @@ function timer(logger = console.log) {
     }, 100);
   }
 }
-
+/*
+function timer(logger = console.log) {
+  for (var i = 0; i < 10; i++) {
+    let tmp = i;
+    setTimeout(() => {
+      logger(tmp);
+    }, 100);
+  }
+}
+function timer(logger = console.log) {
+  for (var i = 0; i < 10; i++) {
+    setTimeout(function(tmp) {
+      return () => {logger(tmp);}
+    }(i), 100);
+  }
+}
+*/
 /*= ============================================ */
 
 /**
