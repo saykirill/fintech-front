@@ -9,20 +9,15 @@ function promiseAll(promises) {
   return new Promise((resolve, reject) => {
     const resolveValues = [];
     let count = 0;
-    // const cl = console.log;
 
     promises.forEach((promise, i) => {
       promise
         .then(
           result => {
             resolveValues[i] = result;
-            // cl(result);
-            // cl(resolveValues);
             count++;
-            // cl(count);
             if (count === promises.length) {
               resolve(resolveValues);
-              // cl(resolveValues);
             }
           }
         )

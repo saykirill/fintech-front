@@ -7,7 +7,7 @@
     "test": "npm run unit-tests && npm run lint && npm run lint-css && npm run lint-html",
     "lint": "eslint */*.js",
     "lint-css": "stylelint *.less",
-    "unit-tests": "mocha --reporter=spec 03/*/test.js"
+    "unit-tests": "mocha --reporter=spec */test.js"
   },
   "husky": {
     "hooks": {
@@ -17,21 +17,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "eslint": "^4.6.1",
     "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.3.0",
     "expect.js": "^0.3.1",
-    "lint": "^1.1.2",
-    "mocha": "^3.5.3"
+    "mocha": "^3.5.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.6",
-    "eslint": "^5.7.0",
-    "eslint-config-google": "^0.11.0",
+    "babel-eslint": "^8.0.1",
     "html-validator": "^2.2.3",
-    "husky": "^1.1.1",
-    "stylelint": "^8.4.0",
+    "husky": "^1.1.0",
+    "stylelint": "^8.2.0",
     "stylelint-config-standard": "^17.0.0"
   }
 }

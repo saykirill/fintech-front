@@ -7,7 +7,7 @@
 
 function promiseRace(promises) {
   return new Promise((resolve, reject) => {
-    promises.forEach((promise, i) => {
+    promises.forEach(promise => {
       promise
         .then(
           firstResult => {
