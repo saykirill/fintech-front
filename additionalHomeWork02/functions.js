@@ -18,34 +18,32 @@
 //
 // Have fun!
 
-function pickPeaks(arr){
-    let pos = [],
-        peaks = [],
-        plat = [];
+function pickPeaks(arr) {
+  let pos = [],
+    peaks = [],
+    plat = [];
 
-    for(let i = 1; i < arr.length; i++) {
-        if(arr[i-1] < arr[i]) {
-            if(arr[i+1] === arr[i]) {
-                plat.push(i);
-            } else if(arr[i+1] < arr[i]) {
-                pos.push(i);
-                peaks.push(arr[i]);
-            }
-        } else if(plat.length > 0) {
-            if(arr[i+1] < arr[i]) {
-                pos.push(plat[0]);
-                peaks.push(arr[plat[0]]);
-                plat = [];
-            } else {
-                plat = [];
-            }
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i - 1] < arr[i] || (arr[i - 1] === arr[i] && plat.length > 0)) {
+      if (arr[i + 1] === arr[i]) {
+        plat.push(i);
+      } else if (arr[i + 1] < arr[i]) {
+        if (plat.length > 0) {
+          pos.push(plat[0]);
+          peaks.push(arr[plat[0]]);
+          plat = [];
+        } else {
+          pos.push(i);
+          peaks.push(arr[i]);
         }
+      }
     }
+  }
 
-    return {
-        pos,
-        peaks,
-    };
+  return {
+    pos,
+    peaks
+  };
 }
 
 
@@ -92,27 +90,28 @@ function pickPeaks(arr){
 // whoIsNext(["Sheldon", "Leonard", "Penny", "Rajesh", "Howard"], 52)=="Penny"
 // whoIsNext(["Sheldon", "Leonard", "Penny", "Rajesh", "Howard"], 7230702951)=="Leonard"
 
-function whoIsNext(names, r){
-    let len = 0,
-        i = 0,
-        j = 0,
-        jMax = names.length - 1;
-    while(len < r) {
-        len = len + Math.pow(2, i);
-        if(r < len) {
-            break;
-        } else if(j < jMax) {
-            j++;
-        } else {
-            j = 0;
-            i++;
-        }
-    }
+function whoIsNext(names, r) {
+  let len = 0,
+    i = 0,
+    j = 0,
+    jMax = names.length - 1;
 
-    return names[j];
+  while (len < r) {
+    len += Math.pow(2, i);
+    if (r < len) {
+      break;
+    } else if (j < jMax) {
+      j++;
+    } else {
+      j = 0;
+      i++;
+    }
+  }
+
+  return names[j];
 }
 
 module.exports = {
-    pickPeaks,
-    whoIsNext
+  pickPeaks,
+  whoIsNext
 };
