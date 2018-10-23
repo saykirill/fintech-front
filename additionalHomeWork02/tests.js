@@ -37,3 +37,14 @@ describe('additionalHomeWork02', () => {
     });
   });
 });
+
+describe('whoIsNext', () => {
+  it('should return the name of the person who drinks the n-th can of cola', () => {
+    expect(
+      whoIsNext(['Sheldon', 'Leonard', 'Penny', 'Rajesh', 'Howard'], 1)).to.eql('Sheldon');
+    expect(
+      whoIsNext(['Sheldon', 'Leonard', 'Penny', 'Rajesh', 'Howard'], 52)).to.eql('Penny');
+    expect(
+      whoIsNext(['Sheldon', 'Leonard', 'Penny', 'Rajesh', 'Howard'], 7230702951)).to.eql('Leonard');
+  });
+});
